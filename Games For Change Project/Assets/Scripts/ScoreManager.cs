@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI text;
     int score;
     public GameObject uiObject;
+    public GameObject Coin;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class ScoreManager : MonoBehaviour
         }
 
         uiObject.SetActive(false);
+        Coin.SetActive(false); 
 
         
     }
@@ -34,6 +36,18 @@ public class ScoreManager : MonoBehaviour
         if (score == 1)
         {
             uiObject.SetActive(true);
+        }
+    }
+
+    public void ScoreChange(int damage)
+    {
+        score -= damage;
+        text.text = "X" + score.ToString();
+
+        if (score <= 0)
+        {
+            Coin.SetActive(true);
+            uiObject.SetActive(false);
         }
     }
     
