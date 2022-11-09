@@ -6,14 +6,17 @@ using TMPro;
 
 public class SceneManager : MonoBehaviour
 {
-    public bool dialogueEnded; //used for the interaction script to know when to unfreeze character; that script should then set this bool to false
+    public bool dialogueEnded;  //used for the interaction script to know when to unfreeze character, activate animation and deactivate the soul;
+                               //that script should then set this bool to false
     public bool useFragments; //used for the interaction script to know when to drop the soul fragment count; that script should then set this bool to false
+                             //also tells another script to change ghost to character
     private bool micStarted;
     private bool volumeFirstReached;
     public TextMeshProUGUI micInstructions;
     public GameObject volumeBar;
     public TextMeshProUGUI micTimer;
-
+    public GameObject[] dialogueControllerHolder = new GameObject[3];
+    public int dialogueIterate = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +33,7 @@ public class SceneManager : MonoBehaviour
             {
                 StartCoroutine(Timer());
             }
-            else if (volumeBar.transform.GetChild(0).gameObject.GetComponent<MicManipulateScale>().loudnessLerp.y < 0.6f && volumeFirstReached)
+            else if (volumeBar.transform.GetChild(0).gameObject.GetComponent<MicManipulateScale>().loudnessLerp.y < 0.4f && volumeFirstReached)
             {
                 StopCoroutine(Timer());
                 micTimer.gameObject.SetActive(false);
@@ -60,13 +63,15 @@ public class SceneManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         micStarted = false;
         micTimer.gameObject.SetActive(false);
-
+        yield return new WaitForSeconds(0.5f);
         //initiate the soul fragment animation #1 here
 
-        useFragments = true;
+        useFragments = true; //signal to drop fragment/coin count - also tells another script to change ghost to character
         volumeBar.SetActive(false);
 
         //activate dialogue box...
+        dialogueControllerHolder[dialogueIterate].SetActive(true);
+        dialogueControllerHolder[dialogueIterate].GetComponent<Dialogue>().dialogueController();
     }
     
 
@@ -84,7 +89,9 @@ public class SceneManager : MonoBehaviour
      * activates mic-manipulated object
      * using mic-manipulated object; if it's a certain size, trigger counter for 3 seconds on screen, then trigger soul fragment animation** (#1) 
      * and drop soul fragment count down to 0
+     * ghost sprite becomes character sprite with idle animation - Kylen - is handling the ghosts i believe
      * deactivate mic-manipulated object
+     * 
      * activate dialogue box and text with dialogue script that will start on its own and
      * continue with user input
      * after dialogue's while loop is done, it will change a boolean that the manager will keep
