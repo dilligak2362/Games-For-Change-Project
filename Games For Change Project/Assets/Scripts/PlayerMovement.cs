@@ -13,10 +13,15 @@ public class PlayerMovement : MonoBehaviour
     private float velocity;
     public EnemyDamage EnemyDamage;
 
+    public Transform detectionPoint;
+    private float groundCheckRadius = 2.0f;
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+
+
 
     void Start()
     {
@@ -27,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(anim.GetBool("jump") + " " + IsGrounded());
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
@@ -48,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckJumpNFall()
     {
-        if (Input.GetButton("Jump") && !IsGrounded())
+        if (Input.GetButton("Jump") && IsGrounded())
         {
             anim.SetBool("falling", false);
             anim.SetBool("jump", true);
@@ -60,17 +66,23 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("falling", true);
         }
 
+        else if (!IsGrounded())
+        {
+            anim.SetBool("falling", true);
+        }
+
         else if (IsGrounded() == true)
         {
             anim.SetBool("jump", false);
             anim.SetBool("falling", false);
+
         }
     }
 
 
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 6.0f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -79,6 +91,12 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(detectionPoint.position, groundCheckRadius);
     }
 
     private void FixedUpdate()
