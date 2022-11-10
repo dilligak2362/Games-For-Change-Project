@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 { 
     public bool dmg_trigger;
-    public int damage; 
+    public int damage;
     public ScoreManager scoreManager; 
 
 private void OnCollisionEnter2D(Collision2D collision)
@@ -18,7 +18,7 @@ private void OnCollisionEnter2D(Collision2D collision)
 
     else if (collision.gameObject.tag != "Player")
     {
-        dmg_trigger = false;
+            dmg_trigger = false;
     }
 }
 }
