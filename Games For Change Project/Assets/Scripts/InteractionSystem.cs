@@ -14,14 +14,27 @@ public class InteractionSystem : MonoBehaviour
     //Cached Trigger Object
     public GameObject detectedObject;
 
+<<<<<<< HEAD
     //SceneManager
     public GameObject SceneManager;
     public GameObject Player;
 
+=======
+<<<<<<< Updated upstream
+=======
+    //SceneManager
+    public GameObject SceneManager;
+    public GameObject Player;
+    public GameObject Wall;
+
+
+>>>>>>> Stashed changes
+>>>>>>> Kylen---Platforming-Programmers-Branch-
     void Update()
     {
         if (DetectObject() && !SceneManager.GetComponent<SceneManager>().dialogueStarted && !SceneManager.GetComponent<SceneManager>().dialogueEnded)
         {
+<<<<<<< HEAD
             StartCoroutine(delay());
         }
 
@@ -30,6 +43,20 @@ public class InteractionSystem : MonoBehaviour
             Destroy(detectedObject);
             Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
             Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+=======
+<<<<<<< Updated upstream
+            if (InteractInput())
+            {
+                Debug.Log("INTERACT");
+                detectedObject.GetComponent<Item>().Interact();
+            }
+=======
+            Destroy(detectedObject);
+            Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            Wall.SetActive(false);
+>>>>>>> Stashed changes
+>>>>>>> Kylen---Platforming-Programmers-Branch-
         }
     }
 
