@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour
     int score;
     public GameObject uiObject;
     public GameObject Coin;
+    public GameObject Wall; 
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,8 @@ public class ScoreManager : MonoBehaviour
         }
 
         uiObject.SetActive(false);
-        Coin.SetActive(false); 
+        Coin.SetActive(false);
+        Wall.SetActive(true);
 
         
     }
@@ -33,9 +35,18 @@ public class ScoreManager : MonoBehaviour
         score += coinValue;
         text.text = "X" + score.ToString();
 
-        if (score == 1)
+        if (score == 3)
         {
             uiObject.SetActive(true);
+        }
+        else
+        {
+            uiObject.SetActive(false); 
+        }
+
+        if (score == 2)
+        {
+            Wall.SetActive(false);
         }
     }
 
@@ -50,5 +61,6 @@ public class ScoreManager : MonoBehaviour
             uiObject.SetActive(false);
         }
     }
+
     
 }

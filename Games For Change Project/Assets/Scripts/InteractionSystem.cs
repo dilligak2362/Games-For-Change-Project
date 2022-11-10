@@ -14,15 +14,31 @@ public class InteractionSystem : MonoBehaviour
     //Cached Trigger Object
     public GameObject detectedObject;
 
+<<<<<<< Updated upstream
+=======
+    //SceneManager
+    public GameObject SceneManager;
+    public GameObject Player;
+    public GameObject Wall;
+
+
+>>>>>>> Stashed changes
     void Update()
     {
         if (DetectObject())
         {
+<<<<<<< Updated upstream
             if (InteractInput())
             {
                 Debug.Log("INTERACT");
                 detectedObject.GetComponent<Item>().Interact();
             }
+=======
+            Destroy(detectedObject);
+            Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+            Wall.SetActive(false);
+>>>>>>> Stashed changes
         }
     }
 
