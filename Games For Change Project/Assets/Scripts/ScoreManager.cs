@@ -59,8 +59,13 @@ public class ScoreManager : MonoBehaviour
 
     public void ScoreChange(int damage)
     {
-        score -= damage;
+        if (score > 0)
+        {
+            score -= damage;
+        }
+        
         text.text = "X" + score.ToString();
+        
         Debug.Log(score.ToString());
 
         if (score <= 0)
@@ -85,6 +90,7 @@ public class ScoreManager : MonoBehaviour
             SoulThree.SetActive(true);
             uiObject.SetActive(false);
         }
+
 
         Debug.Log(score.ToString());
         
