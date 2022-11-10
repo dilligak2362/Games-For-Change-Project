@@ -9,7 +9,8 @@ public class SceneManager : MonoBehaviour
     public bool dialogueEnded;  //used for the interaction script to know when to unfreeze character, activate animation and deactivate the soul;
                                //that script should then set this bool to false
     public bool useFragments; //used for the interaction script to know when to drop the soul fragment count; that script should then set this bool to false
-                             //also tells another script to change ghost to character
+                              //also tells another script to change ghost to character
+    public bool dialogueStarted;
     private bool micStarted;
     private bool volumeFirstReached;
     public TextMeshProUGUI micInstructions;
@@ -21,7 +22,7 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ActivateMicInstructions();  
+          
     }
 
     // Update is called once per frame
@@ -77,7 +78,8 @@ public class SceneManager : MonoBehaviour
 
     public void ActivateMicInstructions() //used for the interaction script to call
     {
-        StartCoroutine(InitialInstructions());  
+        StartCoroutine(InitialInstructions());
+        dialogueStarted = true;
     }
 
 

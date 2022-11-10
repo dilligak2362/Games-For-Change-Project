@@ -41,6 +41,7 @@ public class Dialogue : MonoBehaviour
             dialogueBox.SetActive(false);
             SceneManager.GetComponent<SceneManager>().dialogueIterate++;
             SceneManager.GetComponent<SceneManager>().dialogueEnded = true;
+            SceneManager.GetComponent<SceneManager>().dialogueStarted = false;
             gameObject.SetActive(false);
         }
     }

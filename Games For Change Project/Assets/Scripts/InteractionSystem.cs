@@ -8,28 +8,44 @@ public class InteractionSystem : MonoBehaviour
     //Detection Point
     public Transform detectionPoint;
     //Detection Radius
-    private const float detectionRadius = 0.2f;
+    private const float detectionRadius = 6.0f;
     //Detection Layer
     public LayerMask detectionLayer;
     //Cached Trigger Object
     public GameObject detectedObject;
 
+    //SceneManager
+    public GameObject SceneManager;
+    public GameObject Player;
+
     void Update()
     {
-        if (DetectObject())
+        if (DetectObject() && !SceneManager.GetComponent<SceneManager>().dialogueStarted && !SceneManager.GetComponent<SceneManager>().dialogueEnded)
         {
-            if (InteractInput())
-            {
-                Debug.Log("INTERACT");
-                detectedObject.GetComponent<Item>().Interact();
-            }
+            StartCoroutine(delay());
+        }
+
+        if (SceneManager.GetComponent<SceneManager>().dialogueEnded == true)
+        {
+            Destroy(detectedObject);
+            Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
+    /*
     bool InteractInput()
     {
         return Input.GetKeyDown(KeyCode.E);
 
+    }
+    */
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(.5f);
+        Player.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        SceneManager.gameObject.GetComponent<SceneManager>().ActivateMicInstructions();
     }
 
     bool DetectObject()

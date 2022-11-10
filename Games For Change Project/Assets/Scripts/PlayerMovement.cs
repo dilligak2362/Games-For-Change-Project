@@ -16,14 +16,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
 
-  // Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);  
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
@@ -31,14 +31,14 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-         
+
 
         Flip();
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 6.0f, groundLayer);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -64,4 +64,5 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
 }
