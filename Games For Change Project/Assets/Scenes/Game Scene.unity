@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg_trigger: 0
   damage: 1
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 104601924}
 --- !u!70 &469937243
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg_trigger: 0
   damage: 1
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 104601924}
 --- !u!70 &800886095
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2988,7 +2988,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg_trigger: 0
   damage: 1
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 104601924}
 --- !u!70 &1387174150
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3674,7 +3674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg_trigger: 0
   damage: 1
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 104601924}
 --- !u!70 &1493220632
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4844,7 +4844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg_trigger: 0
   damage: 1
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 104601924}
 --- !u!70 &1901363182
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
