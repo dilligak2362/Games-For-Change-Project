@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform detectionPoint;
     private float groundCheckRadius = 2.0f;
+    public GameObject SceneManager;
 
 
     [SerializeField] private Rigidbody2D rb;
@@ -89,8 +90,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coins"))
         {
+            StartCoroutine(delay());
             Destroy(other.gameObject);
+
         }
+    }
+
+    IEnumerator delay()
+    {
+        yield return new WaitForSeconds(.5f);
+        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        SceneManager.gameObject.GetComponent<SceneManagerScript>().ActivateMicInstructions();
     }
 
     private void OnDrawGizmosSelected()

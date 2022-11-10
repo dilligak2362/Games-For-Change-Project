@@ -7,7 +7,7 @@ using TMPro;
 
 public class FullText : MonoBehaviour
 {
-    public float delay = 0.03f;
+    private float delay = 0.03f;
     public string fullTextTM;
     private string currentText = "";
     public TextMeshProUGUI textDisplay;
