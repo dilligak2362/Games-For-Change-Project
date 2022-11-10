@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class SceneManager : MonoBehaviour
+public class SceneManagerScript : MonoBehaviour
 {
     public bool dialogueEnded;  //used for the interaction script to know when to unfreeze character, activate animation and deactivate the soul;
                                //that script should then set this bool to false
