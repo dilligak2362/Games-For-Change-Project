@@ -10,8 +10,11 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI text;
     int score;
     public GameObject uiObject;
-    public GameObject Coin;
-    public GameObject Wall; 
+    public GameObject SoulOne;
+    public GameObject SoulTwo;
+    public GameObject SoulThree;
+    public GameObject Wall;
+    public EnemyDamage enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +25,9 @@ public class ScoreManager : MonoBehaviour
         }
 
         uiObject.SetActive(false);
-        Coin.SetActive(false);
+        SoulOne.SetActive(false);
+        SoulTwo.SetActive(false);
+        SoulThree.SetActive(false);
         Wall.SetActive(true);
 
         
@@ -50,16 +55,39 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
+
+
     public void ScoreChange(int damage)
     {
         score -= damage;
         text.text = "X" + score.ToString();
+        Debug.Log(score.ToString());
 
         if (score <= 0)
         {
-            Coin.SetActive(true);
+            score = 0; 
+        }
+
+        if (score == 0)
+        { 
+            SoulOne.SetActive(true);
             uiObject.SetActive(false);
         }
+
+        if (score == 1)
+        {
+            SoulTwo.SetActive(true);
+            uiObject.SetActive(false);
+        }
+
+        if (score == 2)
+        {
+            SoulThree.SetActive(true);
+            uiObject.SetActive(false);
+        }
+
+        Debug.Log(score.ToString());
+        
     }
 
     
