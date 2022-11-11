@@ -9,6 +9,21 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
+<<<<<<< Updated upstream
+=======
+    private Animator anim;
+    private float velocity;
+    public EnemyDamage EnemyDamage;
+    public GameObject SoulOne;
+    public GameObject SoulTwo;
+    public GameObject SoulThree;
+    public GameObject SoulFour;
+    public GameObject SoulFive;
+    public GameObject SoulSix;
+    public GameObject SoulSeven;
+    public GameObject SoulEight;
+    public GameObject SoulNine;
+>>>>>>> Stashed changes
 
 
     [SerializeField] private Rigidbody2D rb;
@@ -46,6 +61,60 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Coins"))
         {
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Soul"))
+        {
+            SoulOne.SetActive(false);
+            
+        }
+
+        if (other.gameObject.CompareTag("Soul2"))
+        {
+            SoulTwo.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul3"))
+        {
+            SoulThree.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul4"))
+        {
+            SoulFour.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul5"))
+        {
+            SoulFive.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul6"))
+        {
+            SoulSix.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul7"))
+        {
+            SoulSeven.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul8"))
+        {
+            SoulEight.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul9"))
+        {
+            SoulNine.SetActive(false);
+
         }
     }
 

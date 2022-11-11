@@ -10,8 +10,17 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI text;
     int score;
     public GameObject uiObject;
+<<<<<<< Updated upstream
     public GameObject Coin;
     public GameObject Wall; 
+=======
+    public GameObject SoulOne;
+    public GameObject SoulTwo;
+    public GameObject SoulThree;
+    public GameObject Wall;
+    public GameObject TallWall;
+    public EnemyDamage enemy;
+>>>>>>> Stashed changes
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +31,12 @@ public class ScoreManager : MonoBehaviour
         }
 
         uiObject.SetActive(false);
+<<<<<<< Updated upstream
         Coin.SetActive(false);
         Wall.SetActive(true);
+=======
+        
+>>>>>>> Stashed changes
 
         
     }
@@ -48,6 +61,10 @@ public class ScoreManager : MonoBehaviour
         {
             Wall.SetActive(false);
         }
+        else
+        {
+            Wall.SetActive(true);
+        }
     }
 
     public void ScoreChange(int damage)
@@ -57,9 +74,37 @@ public class ScoreManager : MonoBehaviour
 
         if (score <= 0)
         {
+<<<<<<< Updated upstream
             Coin.SetActive(true);
             uiObject.SetActive(false);
         }
+=======
+            score = 0; 
+        }
+
+        if (score < 3)
+        { 
+            SoulOne.SetActive(true);
+            SoulTwo.SetActive(true);
+            SoulThree.SetActive(true);
+            uiObject.SetActive(false);
+        }
+
+        if (score == 3)
+        {
+            TallWall.SetActive(false);
+        }
+        else
+        {
+            TallWall.SetActive(true);
+        }
+
+        
+
+
+        Debug.Log(score.ToString());
+        
+>>>>>>> Stashed changes
     }
 
     
