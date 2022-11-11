@@ -44,6 +44,7 @@ public class Dialogue : MonoBehaviour
             SceneManager.GetComponent<SceneManagerScript>().dialogueStarted = false;
             gameObject.SetActive(false);
         }
+
     }
 
     public void dialogueController()
