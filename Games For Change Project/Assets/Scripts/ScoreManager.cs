@@ -14,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject SoulTwo;
     public GameObject SoulThree;
     public GameObject Wall;
+    public GameObject TallWall;
     public EnemyDamage enemy;
 
     // Start is called before the first frame update
@@ -25,9 +26,6 @@ public class ScoreManager : MonoBehaviour
         }
 
         uiObject.SetActive(false);
-        SoulOne.SetActive(false);
-        SoulTwo.SetActive(false);
-        SoulThree.SetActive(false);
         Wall.SetActive(true);
 
         
@@ -53,6 +51,10 @@ public class ScoreManager : MonoBehaviour
         {
             Wall.SetActive(false);
         }
+        else
+        {
+            Wall.SetActive(true);
+        }
     }
 
 
@@ -73,27 +75,28 @@ public class ScoreManager : MonoBehaviour
             score = 0; 
         }
 
-        if (score == 0)
-        { 
+        if (score < 3)
+        {
             SoulOne.SetActive(true);
-            uiObject.SetActive(false);
-        }
-
-        if (score == 1)
-        {
             SoulTwo.SetActive(true);
-            uiObject.SetActive(false);
-        }
-
-        if (score == 2)
-        {
             SoulThree.SetActive(true);
             uiObject.SetActive(false);
         }
 
+        if (score == 3)
+        {
+            TallWall.SetActive(false);
+        }
+        else
+        {
+            TallWall.SetActive(true);
+        }
+
+
+
 
         Debug.Log(score.ToString());
-        
+
     }
 
     
