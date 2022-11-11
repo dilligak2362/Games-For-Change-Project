@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Coins"))
         {
             StartCoroutine(delay());
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
 
         }
 

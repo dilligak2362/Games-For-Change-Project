@@ -75,7 +75,7 @@ public class ScoreManager : MonoBehaviour
             score = 0; 
         }
 
-        if (score < 3)
+        else if (score < 3)
         {
             SoulOne.SetActive(true);
             SoulTwo.SetActive(true);
@@ -83,7 +83,7 @@ public class ScoreManager : MonoBehaviour
             uiObject.SetActive(false);
         }
 
-        if (score == 3)
+        else if (score == 3)
         {
             TallWall.SetActive(false);
         }

@@ -270,6 +270,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 104601924}
     - target: {fileID: 5726003114184561455, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
       propertyPath: m_Name
       value: Enemy (7)
@@ -3399,6 +3403,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 104601924}
     - target: {fileID: 5726003114184561455, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -3726,6 +3734,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 104601924}
     - target: {fileID: 5726003114184561455, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
@@ -4216,6 +4228,11 @@ Transform:
   m_Father: {fileID: 1319729780}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1100211687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 880823277445476389, guid: 377470e54a3b6fb478b459e80a18e006, type: 3}
+  m_PrefabInstance: {fileID: 1610818585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1101412919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4329,6 +4346,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 104601924}
     - target: {fileID: 5726003114184561455, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
@@ -5276,6 +5297,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 104601924}
     - target: {fileID: 5726003114184561455, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -5382,7 +5407,7 @@ PrefabInstance:
     - target: {fileID: 2807768487305469534, guid: 2d2917d17c3dc48d5ae5fd4add8e8acb, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1891873534}
     - target: {fileID: 2807768487305469534, guid: 2d2917d17c3dc48d5ae5fd4add8e8acb, type: 3}
       propertyPath: SoulOne
       value: 
@@ -5391,6 +5416,10 @@ PrefabInstance:
       propertyPath: SoulTwo
       value: 
       objectReference: {fileID: 552636875}
+    - target: {fileID: 2807768487305469534, guid: 2d2917d17c3dc48d5ae5fd4add8e8acb, type: 3}
+      propertyPath: TallWall
+      value: 
+      objectReference: {fileID: 1100211687}
     - target: {fileID: 2807768487305469534, guid: 2d2917d17c3dc48d5ae5fd4add8e8acb, type: 3}
       propertyPath: uiObject
       value: 
@@ -5995,6 +6024,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 104601924}
     - target: {fileID: 5726003114184561455, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -6107,6 +6140,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 104601924}
     - target: {fileID: 5726003114184561455, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
       propertyPath: m_Name
       value: Enemy (9)
@@ -7480,6 +7517,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1891873534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5726003114184561454, guid: a5e40e391e9b60742a89eb28a907ffd5, type: 3}
+  m_PrefabInstance: {fileID: 5726003115644218937}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9920ea45796e2d4dbf36b538b4da9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1892824079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8359139468442895590, guid: 3f8d6b94cbda3644f9e21f073ded73e2, type: 3}
