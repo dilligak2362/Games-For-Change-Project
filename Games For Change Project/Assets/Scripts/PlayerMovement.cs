@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         CheckJumpNFall();
 
         //get damage status for animator
-        anim.SetBool("damage", EnemyDamage.dmg_trigger);
+        //anim.SetBool("damage", EnemyDamage.dmg_trigger);
     }
 
     private void CheckJumpNFall()
