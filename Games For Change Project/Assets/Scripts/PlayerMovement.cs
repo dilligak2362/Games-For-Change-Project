@@ -9,13 +9,21 @@ public class PlayerMovement : MonoBehaviour
     private float speed = 8f;
     private float jumpingPower = 16f;
     private bool isFacingRight = true;
+<<<<<<< Updated upstream
+=======
     private Animator anim;
     private float velocity;
     public EnemyDamage EnemyDamage;
-
-    public Transform detectionPoint;
-    private float groundCheckRadius = 2.0f;
-    public GameObject SceneManager;
+    public GameObject SoulOne;
+    public GameObject SoulTwo;
+    public GameObject SoulThree;
+    public GameObject SoulFour;
+    public GameObject SoulFive;
+    public GameObject SoulSix;
+    public GameObject SoulSeven;
+    public GameObject SoulEight;
+    public GameObject SoulNine;
+>>>>>>> Stashed changes
 
 
     [SerializeField] private Rigidbody2D rb;
@@ -23,22 +31,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
 
-
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-        anim.SetFloat("velocity", 0);
-    }
-
-    // Update is called once per frame
+  // Update is called once per frame
     void Update()
     {
-        //Debug.Log(anim.GetBool("jump") + " " + IsGrounded());
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);  
         }
 
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
@@ -46,81 +46,81 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
+         
+
         Flip();
-        CheckJumpNFall();
-
-        //get damage status for animator
-        anim.SetBool("damage", EnemyDamage.dmg_trigger);
     }
 
-    private void CheckJumpNFall()
+    private bool IsGrounded()
     {
-        if (Input.GetButton("Jump") && IsGrounded())
-        {
-            anim.SetBool("falling", false);
-            anim.SetBool("jump", true);
-        }
-
-        else if (Input.GetButtonUp("Jump") && !IsGrounded())
-        {
-            anim.SetBool("jump", false);
-            anim.SetBool("falling", true);
-        }
-
-        else if (!IsGrounded())
-        {
-            anim.SetBool("falling", true);
-        }
-
-        else if (IsGrounded() == true)
-        {
-            anim.SetBool("jump", false);
-            anim.SetBool("falling", false);
-
-        }
-    }
-
-
-    public bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Coins"))
         {
-            StartCoroutine(delay());
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Soul"))
+        {
+            SoulOne.SetActive(false);
+            
+        }
+
+        if (other.gameObject.CompareTag("Soul2"))
+        {
+            SoulTwo.SetActive(false);
 
         }
-    }
 
-    IEnumerator delay()
-    {
-        yield return new WaitForSeconds(.5f);
-        gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        SceneManager.gameObject.GetComponent<SceneManagerScript>().ActivateMicInstructions();
-    }
+        if (other.gameObject.CompareTag("Soul3"))
+        {
+            SoulThree.SetActive(false);
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(detectionPoint.position, groundCheckRadius);
+        }
+
+        if (other.gameObject.CompareTag("Soul4"))
+        {
+            SoulFour.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul5"))
+        {
+            SoulFive.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul6"))
+        {
+            SoulSix.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul7"))
+        {
+            SoulSeven.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul8"))
+        {
+            SoulEight.SetActive(false);
+
+        }
+
+        if (other.gameObject.CompareTag("Soul9"))
+        {
+            SoulNine.SetActive(false);
+
+        }
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-        if (rb.velocity == Vector2.zero || rb.velocity == new Vector2(0, rb.velocity.y))
-        {
-            anim.SetFloat("velocity", 0);
-        }
-        else
-        {
-            anim.SetFloat("velocity", 1);
-        }
     }
 
     private void Flip()
@@ -133,5 +133,4 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
-
 }
