@@ -5,19 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Coins
-<<<<<<< Updated upstream
-=======
   - Ground
-  - Soul
-  - Soul2
-  - Soul3
-  - Soul4
-  - Soul5
-  - Soul6
-  - Soul7
-  - Soul8
-  - Soul9
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -54,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2956166381
+    locked: 0
+  - name: Main
+    uniqueID: 958923455
     locked: 0
