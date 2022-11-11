@@ -5,19 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Coins
-<<<<<<< Updated upstream
-=======
-  - Ground
-  - Soul
-  - Soul2
-  - Soul3
-  - Soul4
-  - Soul5
-  - Soul6
-  - Soul7
-  - Soul8
-  - Soul9
->>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
